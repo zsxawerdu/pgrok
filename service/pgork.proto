@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package service;
+
+service Pipe {
+  rpc Write(WriteReq) returns (WriteResp) {}
+  rpc Read(ReadReq) returns (ReadResp) {}
+}
+
+message WriteReq {
+  string pipeName = 1;
+  bytes data = 2;
+}
+
+message WriteResp {}
+
+
+message ReadReq {
+  string pipeName = 1;
+}
+
+message ReadResp {
+  bytes data = 1;
+}
+
+
